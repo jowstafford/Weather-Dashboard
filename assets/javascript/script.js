@@ -87,10 +87,73 @@ var currentPosition = (cityInput) => {
 
 var finalWeather = () => {
   var CityElement = document.querySelector("#inputInfo");
+  var CityUVElement = document.createElement("p");
+  var CityInputElement = document.createElement("p");
+  var CityTempElement = document.createElement("p");
+  var CityWindElement = document.createElement("p");
+  var CityHumidityElement = document.createElement("p");
+  var CityCloudsElement = document.createElement("i");
   CityElement.innerHTML = "";
-}
+  CityInputElement.textContent = cityInput;
+  CityTempElement.textContent =
+    "Temperature: " + conditionVariables.temp + "°F";
+  CityWindElement.textContent =
+    "Wind Speeds: " + conditionVariables.wind + "MPH";
+  CityHumidityElement.textContent =
+    "Humidity: " + conditionVariables.humidity + "%";
+  CityUVElement.textContent = "UV Index: " + conditionVariables.UVIndex;
+  CityElement.appendChild(CityInputElement);
+  CityElement.appendChild(CityTempElement);
+  CityElement.appendChild(CityWindElement);
+  CityElement.appendChild(CityHumidityElement);
+  CityElement.appendChild(CityUVElement);
+
+  if (conditionVariables.clouds == 100) {
+    CityCloudsElement.classList.add("fa-solid");
+    CityCloudsElement.classList.add("fa-cloud");
+    CityElement.prepend(CityCloudsElement);
+  } else if (
+    conditionVariables.clouds >= 50 &&
+    conditionVariables.clouds <= 99
+  ) {
+    CityCloudsElement.classList.add("fa-solid");
+    CityCloudsElement.classList.add("fa-cloud-sun");
+    CityElement.prepend(CityCloudsElement);
+  } else if (
+    conditionVariables.clouds >= 0 &&
+    conditionVariables.clouds <= 49
+  ) {
+    CityCloudsElement.classList.add("fa-solid");
+    CityCloudsElement.classList.add("fa-sun");
+    CityElement.prepend(CityCloudsElement);
+  }
+};
 
 var parseWeather = (weatherElement) => {
   var weatherJSON = JSON.parse(weatherElement);
+  var dailyForecast = weatherJSON.daily;
   document.getElementById("forecastInfo").innerHTML = "";
+  for (x = 1; x < dailyForecast.length; x++) {
+    var day = dailyForecast[x];
+    var today = new Date().getDay() + x;
+    if (today > 6) {
+      today = today - 7;
+    }
+    var Weekdays = WeekdayList(today);
+    var highTemperature = trueTemp(day.temp.max);
+    var lowTemperature = trueTemp(day.temp.min);
+    var humidity = day.humidity;
+    var windSpeed = day.wind_speed;
+    var windGust = day.wind_gust;
+    var UVIndex = day.uvi;
+    displayWeatherDay(
+      highTemperature,
+      lowTemperature,
+      windSpeed,
+      Weekdays,
+      humidity,
+      windGust,
+      UVIndex
+    );
+  }
 };
