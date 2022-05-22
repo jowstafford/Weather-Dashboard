@@ -84,3 +84,13 @@ var currentPosition = (cityInput) => {
     alert("Please Enter City Name");
   }
 };
+
+var finalWeather = () => {
+  var CityElement = document.querySelector("#inputInfo");
+  CityElement.innerHTML = "";
+}
+
+var parseWeather = (weatherElement) => {
+  var weatherJSON = JSON.parse(weatherElement);
+  document.getElementById("forecastInfo").innerHTML = "";
+};

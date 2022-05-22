@@ -1,5 +1,5 @@
 * {
-    overflow: hidden
+  overflow: hidden;
 }
 
 .dbBody {
@@ -7,7 +7,7 @@
   background-image: url(https://i.pinimg.com/originals/71/32/f3/7132f3c2ed1cd5a152b0a82a97fb30f1.gif);
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
 }
@@ -30,6 +30,13 @@
   height: 10%;
 }
 
+.searchBar {
+  width: 200px;
+  height: 30px;
+  margin-left: 40%;
+  margin-top: 2%;
+}
+
 .inputBtn {
   margin-top: 1.75%;
   margin-left: 0%;
@@ -44,4 +51,42 @@
   box-shadow: 0px 0px 50px 20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.8);
+}
+
+.inputContainer {
+  border: solid 3px black;
+  width: 40%;
+  margin: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 240%;
+  text-align: center;
+}
+
+#confirmInput {
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#confirmInput:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.forecast {
+  border: solid 3px black;
+  width: 85%;
+  margin: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#forecastInfo {
+  width: 100%;
+  margin: 30px;
+  font-size: 20px;
 }
