@@ -15,6 +15,9 @@ This is a weather dahsboard. You can enter in the name of any city and the infor
 
 ## Usage
 Go to the deployed application here:
+https://jowstafford.github.io/Weather-Dashboard/
+
+https://user-images.githubusercontent.com/91708768/169729361-7e43484d-07b6-47b0-a3f1-40226efd2028.mp4
 
 ## Collaborators
 no other collaborators. 
